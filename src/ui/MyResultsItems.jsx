@@ -9,22 +9,34 @@ const MyResultsItems = ({result, noIsTriagnle}) => {
         {result && !noIsTriagnle && <ul>
           Результат:
                <li>
-                  {result.area && <span className='text-green-500'>Площадь: { Math.trunc(result.area * 100 ) / 100 }</span> }
+                  {result.area !== "" && <span className='text-green-500'>Тип треугольникa: {result.typeTriangle}</span> }
                </li>
                <li>
-                  {result.per && <span className='text-green-500'>Периметр: { Math.trunc(result.per * 100 ) / 100 }</span> }
+                  {result.area !== 0 && <span className='text-green-500'>Площадь: { Math.trunc(result.area * 100 ) / 100 }</span> }
                </li>
                <li>
-                  {result.bess && <span className='text-green-500'>Биссектриса: { Math.trunc(result.bess * 100 ) / 100 }</span> } 
+                  {result.per !== 0 && <span className='text-green-500'>Периметр: { Math.trunc(result.per * 100 ) / 100 }</span> }
                </li>
                <li>
-                   {result.med && <span className='text-green-500'>Медиана: { Math.trunc(result.med * 100 ) / 100 }</span> } 
+                  {result.bess !== 0 && <span className='text-green-500'>Биссектриса: { Math.trunc(result.bess * 100 ) / 100 }</span> } 
                </li>
                <li>
-                 {result.inCircle && <span className='text-green-500'>Площадь вписаной окружности: { Math.trunc(result.inCircle * 100 ) / 100 } </span> }
+                   {result.med  !== 0 && <span className='text-green-500'>Медиана: { Math.trunc(result.med * 100 ) / 100 }</span> } 
                </li>
                <li>
-                 {result.outCircle && <span className='text-green-500'>Площадь описаной окружности: { Math.trunc(result.outCircle * 100 ) / 100 } </span> } 
+                 {result.inCircle !== 0 && <span className='text-green-500'>Площадь вписаной окружности: { Math.trunc(result.outCircle * 100 ) / 100 } </span> }
+               </li>
+               <li>
+                 {result.outCircle !== 0 && <span className='text-green-500'>Площадь описаной окружности: { Math.trunc(result.inCircle * 100 ) / 100 } </span> } 
+               </li>
+               <li>
+                 {result.cos !== 0 && result.cos !== "0" && <span className='text-green-500'>Косинус: { Math.trunc(result.cos * 100 ) / 100 } </span> } 
+               </li>
+               <li>
+                 {result.sin !== 0 && <span className='text-green-500'>Синус: { Math.trunc(result.sin * 100 ) / 100 } </span> } 
+               </li>
+               <li>
+                 {result.tang !== 0 && <span className='text-green-500'>Тангенс: { Math.trunc(result.tang * 100 ) / 100 } </span> } 
                </li>
          </ul>}  
       </div>
