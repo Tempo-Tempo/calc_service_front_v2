@@ -2,12 +2,12 @@ import React from 'react';
 
 const MyResultsItems = ({result, noIsTriagnle}) => {
    return (
-         <div>  
+         <div className='border-t-2 mt-3'>  
                <div>
                   {noIsTriagnle && <span className='text-green-500'>{ noIsTriagnle.resultText }</span> }
                </div>
         {result && !noIsTriagnle && <ul>
-          Результат:
+         <span className='font-bold text-lg'>Результат:</span>
                <li>
                   {result.area !== "" && <span className='text-green-500'>Тип треугольникa: {result.typeTriangle}</span> }
                </li>
