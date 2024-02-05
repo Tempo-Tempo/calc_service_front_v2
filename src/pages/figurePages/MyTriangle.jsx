@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import MyInput from '../../ui/MyInputForCalc.tsx';
 import MyButton from '../../ui/MyButton.tsx';
 import MyImage from '../../ui/MyImage';
 import LinkToMain from '../../ui/LinkToMain';
 import { ErrorMessage } from '../../components/ErrorMessage';
-import { calc, calcV2 } from '../../hooks/UseTestPost/GetCalcResult.js';
+import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
-import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
 
 
 const MyTriangle = () => {
