@@ -6,6 +6,7 @@ import LinkToMain from '../../ui/LinkToMain';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
+import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
 
 
 const MyTriangle = () => {
@@ -23,6 +24,7 @@ const MyTriangle = () => {
          setStartValid(false)
       }, 2500);
       let result = await calc(newCalc, "triangle");
+      if(RulesTypeTriangle(newCalc)?.length) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
       setResult(result);
    })
 

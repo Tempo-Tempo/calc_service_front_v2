@@ -4,7 +4,7 @@ const MyResultsItems = ({result, noIsTriagnle}) => {
    return (
          <div className='border-t-2 mt-3'>  
                <div>
-                  {noIsTriagnle && <span className='text-green-500'>{ noIsTriagnle.resultText }</span> }
+                  {noIsTriagnle && <span className='text-red-500'>{ noIsTriagnle }</span> }
                </div>
         {result && !noIsTriagnle && <ul>
          <span className='font-bold text-lg'>Результат:</span>
