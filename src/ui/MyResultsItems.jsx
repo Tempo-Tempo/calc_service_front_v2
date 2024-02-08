@@ -10,7 +10,7 @@ const MyResultsItems = ({result, noIsTriagnle}) => {
         {result && noIsTriagnle.length === 0 && <ul>
          <span className='font-bold text-lg'>Результат:</span>
                <li>
-                  {result.area !== "" && <span className='text-green-500'>Тип треугольникa: {result.typeTriangle}</span> }
+                  {result.typeTriangle !== "" && <span className='text-green-500'>Тип треугольникa: {result.typeTriangle}</span> }
                </li>
                <li>
                   {result.area !== 0 && <span className='text-green-500'>Площадь: { Math.trunc(result.area * 100 ) / 100 }</span> }

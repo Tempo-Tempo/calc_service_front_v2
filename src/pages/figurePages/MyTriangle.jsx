@@ -7,10 +7,11 @@ import { ErrorMessage } from '../../components/ErrorMessage';
 import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
 import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
+import DescripFigure from '../../components/DescripFigure.jsx';
 
 
 const MyTriangle = () => {
-   const [startValid, setStartValid] = useState(false);
+   const [typeTriangle, setTypeTriangle] = useState('');
 
    const [errorIsNoTriangle, setErrorIsNoTriangle] = useState('');
 
@@ -22,7 +23,7 @@ const MyTriangle = () => {
       console.log(RulesTypeTriangle(newCalc)?.length)
       if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
       setErrorIsNoTriangle(RulesTypeTriangle(newCalc))
-      let result = await calc(newCalc, "triangle");   
+      let result = await calc(newCalc, "triangle");
       setResult(result);
    })
 
@@ -35,58 +36,34 @@ const MyTriangle = () => {
          </div>
          <ul className='text-left p-2'>
                 <div className='flex mb-3 mt-2'>
-                  {<MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops' />}
-                  <span className='ml-4'> Формула площади: P = (a + b + c) / 2; S = p * (p - a) * (p - b) * (p - c), где P - полупериметр, a,b,c стороны </span>
+                  {/* {<MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops' />} */}
+                 <DescripFigure typeTriangle={result.typeTriangle}/>
                 </div> 
                 <li className='flex justify-between'>
                 <span>Введите сторону a:</span>
-               <MyInput
-               value={newCalc.a} 
-               onChange={(e) => setNewCalc({...newCalc, a: e})} 
-               placeholder='Введите сторону a'
-               validison={ ErrorMessage(newCalc.a, startValid)} />
+               <MyInput value={newCalc.a} onChange={(e) => setNewCalc({...newCalc, a: e})} placeholder='Введите сторону a'/>
                 </li>
                <li className='flex justify-between'>
               <span>Введите сторону b:</span>
-               <MyInput 
-               value={newCalc.b} 
-               onChange={(e) => setNewCalc({...newCalc, b: e})} 
-               placeholder='Введите сторону b' 
-               validison={ErrorMessage(newCalc.b, startValid)}/>
+               <MyInput value={newCalc.b} onChange={(e) => setNewCalc({...newCalc, b: e})} placeholder='Введите сторону b'/>
               </li>
                <li  className='flex justify-between'>
                <span>Введите сторону c:</span>
-                 <MyInput 
-               value={newCalc.c} 
-               onChange={(e) => setNewCalc({...newCalc, c: e})} 
-               placeholder='Введите сторону с' 
-               validison={ErrorMessage(newCalc.c, startValid)}/> 
+                 <MyInput value={newCalc.c} onChange={(e) => setNewCalc({...newCalc, c: e})} placeholder='Введите сторону с'/> 
                </li>
                <li className='flex justify-between'>
                <span>Введите угол А:</span>
-               <MyInput 
-               value={newCalc.angleA} 
-               onChange={(e) => setNewCalc({...newCalc, angleA: e})} 
-               placeholder='Введите угол A' 
-               validison={ErrorMessage(newCalc.angleA, startValid)}/>
+               <MyInput value={newCalc.angleA} onChange={(e) => setNewCalc({...newCalc, angleA: e})} placeholder='Введите угол A' />
                </li>
                <li className='flex justify-between'>
                <span>Введите угол B:</span>
-               <MyInput 
-               value={newCalc.angleB} 
-               onChange={(e) => setNewCalc({...newCalc, angleB: e})} 
-               placeholder='Введите угол B' 
-               validison={ErrorMessage(newCalc.angleB, startValid)}/>
+               <MyInput value={newCalc.angleB} onChange={(e) => setNewCalc({...newCalc, angleB: e})} placeholder='Введите угол B' />
                 </li>
                 <li className='flex justify-between'>
                 <span>Введите угол C:</span>
-               <MyInput 
-               value={newCalc.angleC} 
-               onChange={(e) => setNewCalc({...newCalc, angleC: e})} 
-               placeholder='Введите угол C' 
-               validison={ErrorMessage(newCalc.angleC, startValid)}/>
-                </li>
-                
+               <MyInput value={newCalc.angleC} onChange={(e) => setNewCalc({...newCalc, angleC: e})} placeholder='Введите угол C' 
+              />
+                </li> 
                <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} />
          </ul>
          <MyButton onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>
