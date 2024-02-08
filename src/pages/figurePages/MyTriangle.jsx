@@ -19,12 +19,10 @@ const MyTriangle = () => {
    const [ newCalc, setNewCalc ] = useState({a: '', b: '', c: '', angleA: '', angleB: '', angleC: ''});
   
    const calcMyTriangle = useCallback(async () => {
-      setStartValid(true)
-      setTimeout(() => {
-         setStartValid(false)
-      }, 2500);
-      let result = await calc(newCalc, "triangle");
-      if(RulesTypeTriangle(newCalc)?.length) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
+      console.log(RulesTypeTriangle(newCalc)?.length)
+      if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
+      setErrorIsNoTriangle(RulesTypeTriangle(newCalc))
+      let result = await calc(newCalc, "triangle");   
       setResult(result);
    })
 
