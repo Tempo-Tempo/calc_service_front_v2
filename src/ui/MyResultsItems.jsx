@@ -7,7 +7,10 @@ const MyResultsItems = ({result, noIsTriagnle}) => {
                <div>
                   {noIsTriagnle && <span className='text-red-500'>{ noIsTriagnle }</span> }
                </div>
-        {result && noIsTriagnle.length === 0 && <ul>
+               <div>
+                  {result.testErr !== null && <span className='text-red-500'>{ result.testErr }</span> }
+               </div>
+        {result && noIsTriagnle.length === 0 && result.testErr === null && <ul>
          <span className='font-bold text-lg'>Результат:</span>
                <li>
                   {result.typeTriangle !== "" && <span className='text-green-500'>Тип треугольникa: {result.typeTriangle}</span> }

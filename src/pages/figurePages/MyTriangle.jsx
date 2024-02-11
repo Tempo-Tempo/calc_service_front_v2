@@ -23,6 +23,7 @@ const MyTriangle = () => {
       if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
       setErrorIsNoTriangle(RulesTypeTriangle(newCalc))
       let result = await calc(newCalc, "triangle");
+      console.log(result);
      // console.log(RulesTypeTriangle(result.typeTriangle))
       setResult(result);
    })
@@ -36,8 +37,9 @@ const MyTriangle = () => {
          </div>
          <ul className='text-left p-2'>
                 <div className='flex mb-3 mt-2'>
+                <MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/>
                   {/* {<MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops' />} */}
-                 <DescripFigure typeTriangle={result.typeTriangle}/>
+                 {/* <DescripFigure typeTriangle={result.typeTriangle}/> */}
                 </div> 
                 <li className='flex justify-between'>
                 <span>Введите сторону a:</span>
