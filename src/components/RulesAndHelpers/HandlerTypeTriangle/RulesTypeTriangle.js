@@ -5,6 +5,10 @@ export const RulesTypeTriangle = (values) => {
    sides.sort((a, b) => {
       return a - b;
    });
+   let angles = [Number(angleA), Number(angleB), Number(angleC)].filter(s => s !== 0);
+   angles.sort((a, b) => {
+      return a - b;
+   });
    let stoppper = Object.values(values).filter(angle => angle !== '');
    const sumAngles = Number(angleA) + Number(angleB) + Number(angleC);
    switch(true) {
@@ -23,6 +27,15 @@ export const RulesTypeTriangle = (values) => {
       return resultText;
       case (sides[0] + sides[1] < sides[2]):
       resultText = "Сумма двух сторон треугольника не может быть меньше третьей!";
+      return resultText;
+      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleA) !== 60 && Number(angleA) !== 0):
+      resultText = "В равностроннем углы должен быть равен 60";
+      return resultText;
+      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleB) !== 60 && Number(angleB) !== 0):
+      resultText = "В равностроннем углы должен быть равен 60";
+      return resultText;
+      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleC) !== 60 && Number(angleC) !== 0):
+      resultText = "В равностроннем углы должен быть равен 60";
       return resultText;
       default:
       resultText = '';
