@@ -8,6 +8,7 @@ import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
 import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
 import DescripFigure from '../../components/DescripFigure.jsx';
+import TriangleCanvas from './MyTriangleCanvas.jsx';
 
 
 const MyTriangle = () => {
@@ -27,6 +28,11 @@ const MyTriangle = () => {
      // console.log(RulesTypeTriangle(result.typeTriangle))
       setResult(result);
    })
+   const vertices = [
+      { x: 0, y: 0 },
+      { x: 150, y: 100 },
+      { x: 50, y: 150 },
+    ];
 
    return (
       <div className={'absolute flex flex-col bg-black p-2 border-2 text-base border-sky-500 rounded-md w-96 h-100'}>
@@ -69,6 +75,7 @@ const MyTriangle = () => {
                <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} />
          </ul>
          <MyButton onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>
+         <TriangleCanvas width={200} height={200}  vertices={vertices}/>
       </div>
    );
 };
