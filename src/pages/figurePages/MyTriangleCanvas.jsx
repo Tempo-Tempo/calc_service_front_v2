@@ -17,9 +17,11 @@ const TriangleCanvas = ({ width, height, vertices }) => {
     ctx.stroke();
   }, [vertices, width, height]);
 
-  return (<div className='mt-5 ml-2 flex justify-center'>
-            <canvas ref={canvasRef} width={width} height={height} />
-         </div>)
+  return (
+      <div className='mt-5 ml-2 flex justify-center'>
+        <canvas ref={canvasRef} width={width} height={height} />
+      </div>
+ );
 };
 
 export default TriangleCanvas;

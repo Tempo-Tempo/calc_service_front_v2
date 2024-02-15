@@ -1,24 +1,24 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MyInput from '../../ui/MyInputForCalc.tsx';
 import MyButton from '../../ui/MyButton.tsx';
 import MyImage from '../../ui/MyImage';
-import LinkToMain from '../../ui/LinkToMain';
-import { ErrorMessage } from '../../components/ErrorMessage';
 import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
 import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
-import DescripFigure from '../../components/DescripFigure.jsx';
-import TriangleCanvas from './MyTriangleCanvas.jsx';
+import "./FigurePage.css";
 
 
-const MyTriangle = () => {
-   const [typeTriangle, setTypeTriangle] = useState('');
-
-   const [errorIsNoTriangle, setErrorIsNoTriangle] = useState('');
+const MyTriangle = () => {   
+   const [ errorIsNoTriangle, setErrorIsNoTriangle ] = useState('');
 
    const [ result, setResult ] = useState('');
 
    const [ newCalc, setNewCalc ] = useState({a: '', b: '', c: '', angleA: '', angleB: '', angleC: ''});
+
+   useEffect(() => {
+      const result = JSON.parse(localStorage.getItem("result"));
+      setResult(result);
+   }, [])
   
    const calcMyTriangle = useCallback(async () => {
       if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
@@ -29,58 +29,51 @@ const MyTriangle = () => {
       || Number(result?.angleC) !== Number(newCalc.angleC) && Number(newCalc.angleC) !== 0) {
          setErrorIsNoTriangle("Такого треугольника не существует.");
       }
-      console.log(result);
-     // console.log(RulesTypeTriangle(result.typeTriangle))
+      localStorage.setItem("result", JSON.stringify(result));
       setResult(result);
    })
-   const vertices = [
-      { x: 0, y: 0 },
-      { x: 150, y: 100 },
-      { x: 50, y: 150 },
-    ];
+
 
    return (
-      <div className={'absolute flex flex-col bg-black p-2 border-2 text-base border-sky-500 rounded-md w-96 h-100'}>
-         <LinkToMain />
-         <div className='border-b-2'>Калькулятор треугольникa</div>
-         <div className='mt-1 mb-2 border-b-2 relative flex flex-col justify-center items-center'>
+      <div className="figure_item">
+         <div className='figure_title'>Калькулятор треугольникa</div>
+         <div className='figure_title'>
          Треугольник — это геометрическая фигура, состоящая из трех отрезков
          </div>
-         <ul className='text-left p-2'>
-                <div className='flex mb-3 mt-2'>
-                <MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/>
+            <ul>
+                <div className='figure_description'>
+                <MyImage width={400} src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/>
                   {/* {<MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops' />} */}
-                 {/* <DescripFigure typeTriangle={result.typeTriangle}/> */}
+                  <li className='ml-4'> Площадь вычисляется по формуле Герона S = √(s * (s - a) * (s - b) * (s - c)) </li>
                 </div> 
-                <li className='flex justify-between'>
+                <li className='li_figure'>
                 <span>Введите сторону a:</span>
                <MyInput value={newCalc.a} onChange={(e) => setNewCalc({...newCalc, a: e})} placeholder='Введите сторону a'/>
                 </li>
-               <li className='flex justify-between'>
+               <li className='li_figure'>
               <span>Введите сторону b:</span>
                <MyInput value={newCalc.b} onChange={(e) => setNewCalc({...newCalc, b: e})} placeholder='Введите сторону b'/>
               </li>
-               <li  className='flex justify-between'>
+               <li className='li_figure'>
                <span>Введите сторону c:</span>
                  <MyInput value={newCalc.c} onChange={(e) => setNewCalc({...newCalc, c: e})} placeholder='Введите сторону с'/> 
                </li>
-               <li className='flex justify-between'>
+               <li className='li_figure'>
                <span>Введите угол А:</span>
                <MyInput value={newCalc.angleA} onChange={(e) => setNewCalc({...newCalc, angleA: e})} placeholder='Введите угол A' />
                </li>
-               <li className='flex justify-between'>
+               <li className='li_figure'>
                <span>Введите угол B:</span>
                <MyInput value={newCalc.angleB} onChange={(e) => setNewCalc({...newCalc, angleB: e})} placeholder='Введите угол B' />
                 </li>
-                <li className='flex justify-between'>
+                <li className='li_figure'>
                 <span>Введите угол C:</span>
                <MyInput value={newCalc.angleC} onChange={(e) => setNewCalc({...newCalc, angleC: e})} placeholder='Введите угол C' 
               />
                 </li> 
                <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} />
          </ul>
-         <MyButton onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>
-         <TriangleCanvas width={200} height={200}  vertices={vertices}/>
+         {<MyButton className={"bg-black mt-2 font-bold p-1 border border-white text-base text-white rounded-md hover:bg-gray-900"} onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>}
       </div>
    );
 };

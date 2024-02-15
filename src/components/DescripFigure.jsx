@@ -25,7 +25,7 @@ const DescripFigure = ({typeTriangle}) => {
          }
          {typeTriangle === "Равносторонний" &&  <div className='flex'>
          {/* <MyImage src={require(`../assets/imgFigure/triangleRawn.png`)} alt='ooops'/> */}
-         <li className='ml-4'> Равносторонний треугольник — это такой треугольник, у которого все стороны равны. </li>
+         <li className='ml-4'> Равносторонний треугольник — треугольник, у которого все стороны равны. </li>
          </div>
          }
 

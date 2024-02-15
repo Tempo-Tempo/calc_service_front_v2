@@ -1,0 +1,122 @@
+.figure_item {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   background: #000;
+   border-width: 2px;
+   padding: 15px;
+   border-radius: 5px;
+   font-size: 18px;
+   width: 24rem;
+   max-height: 100%;
+   font-size: 1rem; 
+   line-height: 1.5rem;
+   border: 2px solid skyblue;
+}
+
+.figure_title {
+   border-bottom: 2px solid;
+   padding-bottom: 4px;
+}
+
+.select_Figure {
+   color: black;
+   border-radius: 5px;
+   cursor: pointer;
+   margin-top: 5px;
+}
+
+.ul_Figure {
+   text-align: left;
+   padding: 2;
+   margin-top: 5px;
+}
+
+.li_figure {
+   display: flex;
+   justify-content: space-between;
+}
+
+.figure_description {
+   display: flex;
+   margin-bottom: 10px;
+   margin-top: 7px;
+}
+
+.li_Inner {
+   display: flex;
+   margin-bottom: 7px;
+   margin-top: 10px;
+}
+
+.text_error {
+   color: red;
+}
+
+.text_green {
+   color: rgb(1, 188, 1);
+}
+
+.title_result {
+   font-size: 1.125rem;
+   line-height: 1.75rem;
+   font-weight: bold;
+}
+
+.result_line {
+   border-top: 2px solid white;
+   text-align: left;
+   margin-top: 0.75rem;
+}
+
+.slider {
+   display: flex;
+   justify-content: center;
+   position: relative;
+}
+
+.arrow_slider {
+   position: absolute;
+   background: white;
+   font-size: 18px;
+   display: flex;
+   font-weight: bold;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   border: 2px solid skyblue;
+   padding: 3px 8px 6px 6px;
+   left: 5px;
+   top: 20px;
+   cursor: pointer;
+   color:black;
+   transition: 0.3s;
+}
+
+.arrow_slider_left {
+   position: absolute;
+   background: white;
+   font-size: 18px;
+   display: flex;
+   font-weight: bold;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   border: 2px solid skyblue;
+   padding: 3px 8px 6px 6px;
+   right: 5px;
+   top: 20px;
+   cursor: pointer;
+   color:black;
+   transition: 0.3s;
+}
+
+.arrow_slider:hover {
+   transition: 0.3s;
+   opacity: 0.5;
+}
+
+.arrow_slider_left:hover {
+   transition: 0.3s;
+   opacity: 0.5;
+}

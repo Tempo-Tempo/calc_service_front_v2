@@ -1,19 +1,9 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ArrRoutes } from './components/MyRoutes';
-import { StopFetchContext } from './context';
-
 function App() {
-
-  // не используется
-  const [ isFetch, setIsFetch ] = useState(false);
-
   return (
-    <StopFetchContext.Provider value={{
-      isFetch,
-      setIsFetch
-    }}>
       <div className="App">
       <header className="App-header">
         <Routes>
@@ -28,8 +18,6 @@ function App() {
         </Routes>
       </header>
     </div>
-    </StopFetchContext.Provider>
-    
   );
 }
 

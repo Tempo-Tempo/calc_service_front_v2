@@ -4,14 +4,15 @@ interface MyButtonProps {
    children: ReactNode,
    onClick: () => void,
    onSubmit: () => void,
+   className: string;
 }
 
-const MyButton = ({children, onClick, onSubmit,  ...props}: MyButtonProps) => {
+const MyButton = ({children, onClick, onSubmit, className = '', ...props}: MyButtonProps) => {
    return (
          <button 
          onClick={onClick} 
          {...props} 
-         className="bg-black font-bold p-1 border border-white text-base text-white rounded-md hover:bg-gray-900">
+         className={className}>
             {children}
          </button>
    )
