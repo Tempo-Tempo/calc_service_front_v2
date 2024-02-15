@@ -24,6 +24,11 @@ const MyTriangle = () => {
       if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
       setErrorIsNoTriangle(RulesTypeTriangle(newCalc))
       let result = await calc(newCalc, "triangle");
+      if(Number(result?.angleA) !== Number(newCalc.angleA) && Number(newCalc.angleA) !== 0 
+      || Number(result?.angleB) !== Number(newCalc.angleB) && Number(newCalc.angleB) !== 0 
+      || Number(result?.angleC) !== Number(newCalc.angleC) && Number(newCalc.angleC) !== 0) {
+         setErrorIsNoTriangle("Такого треугольника не существует.");
+      }
       console.log(result);
      // console.log(RulesTypeTriangle(result.typeTriangle))
       setResult(result);

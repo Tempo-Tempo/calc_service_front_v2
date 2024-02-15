@@ -1,5 +1,6 @@
-export const RulesTypeTriangle = (values) => {
+export const RulesTypeTriangle = (values, test) => {
    let {a, b, c, angleA, angleB, angleC} = values
+   console.log(test);
    let resultText = '';
    let sides = [Number(a), Number(b), Number(c)].filter(s => s !== 0);
    sides.sort((a, b) => {
@@ -20,22 +21,13 @@ export const RulesTypeTriangle = (values) => {
       resultText = 'Недостаточно данных!';
       return resultText;
       case (sumAngles !== 180 && angleA !== '' && angleB !== '' && angleC !== ''):
-      resultText = "Сумма трех уголв должна быть равная 180!";
+      resultText = "Сумма трех углов должна быть равная 180!";
       return resultText;
       case (Number(angleA) > 178 ||Number(angleB) > 178 || Number(angleC) > 178 ):
       resultText = "Сумма трех уголв должна быть равная 180!";
       return resultText;
       case (sides[0] + sides[1] < sides[2]):
       resultText = "Сумма двух сторон треугольника не может быть меньше третьей!";
-      return resultText;
-      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleA) !== 60 && Number(angleA) !== 0):
-      resultText = "В равностроннем углы должен быть равен 60";
-      return resultText;
-      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleB) !== 60 && Number(angleB) !== 0):
-      resultText = "В равностроннем углы должен быть равен 60";
-      return resultText;
-      case (sides[0] === sides[1] && sides[1] === sides[2] && Number(angleC) !== 60 && Number(angleC) !== 0):
-      resultText = "В равностроннем углы должен быть равен 60";
       return resultText;
       default:
       resultText = '';
