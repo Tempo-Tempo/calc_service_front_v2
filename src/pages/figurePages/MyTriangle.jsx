@@ -42,8 +42,7 @@ const MyTriangle = () => {
          </div>
             <ul>
                 <div className='figure_description'>
-                <MyImage width={400} src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/>
-                  {/* {<MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops' />} */}
+               <span ><MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/></span> 
                   <li className='ml-4'> Площадь вычисляется по формуле Герона S = √(s * (s - a) * (s - b) * (s - c)) </li>
                 </div> 
                 <li className='li_figure'>
@@ -73,7 +72,7 @@ const MyTriangle = () => {
                 </li> 
                <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} />
          </ul>
-         {<MyButton className={"bg-black mt-2 font-bold p-1 border border-white text-base text-white rounded-md hover:bg-gray-900"} onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>}
+         {<MyButton onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>}
       </div>
    );
 };

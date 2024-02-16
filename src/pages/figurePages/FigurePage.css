@@ -39,6 +39,7 @@
 
 .figure_description {
    display: flex;
+   justify-content: space-between;
    margin-bottom: 10px;
    margin-top: 7px;
 }
@@ -73,21 +74,17 @@
    display: flex;
    justify-content: center;
    position: relative;
+   border-top: 2px solid white;
 }
 
 .arrow_slider {
    position: absolute;
-   background: white;
-   font-size: 18px;
    display: flex;
    font-weight: bold;
    justify-content: center;
    align-items: center;
-   border-radius: 10px;
-   border: 2px solid skyblue;
-   padding: 3px 8px 6px 6px;
-   left: 5px;
-   top: 20px;
+   left: 0px;
+   top: 40%;
    cursor: pointer;
    color:black;
    transition: 0.3s;
@@ -95,28 +92,39 @@
 
 .arrow_slider_left {
    position: absolute;
-   background: white;
-   font-size: 18px;
    display: flex;
    font-weight: bold;
    justify-content: center;
    align-items: center;
-   border-radius: 10px;
-   border: 2px solid skyblue;
-   padding: 3px 8px 6px 6px;
-   right: 5px;
-   top: 20px;
+   right: 0px;
+   top: 40%;
    cursor: pointer;
    color:black;
    transition: 0.3s;
 }
 
-.arrow_slider:hover {
+.slide_panel {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   align-items: center;
+   width: 18em;
+   height: 21em;
+   overflow: hidden;
+   margin-top: 20px;
+   position: relative;
    transition: 0.3s;
-   opacity: 0.5;
 }
 
-.arrow_slider_left:hover {
+img {
+   top: 0;
+   width: 400px;
+   height: 185px;
+   border-radius: 5px;
    transition: 0.3s;
-   opacity: 0.5;
+   margin-bottom: 10px;
+}
+
+.img_wrap {
+   transition: 0.3s;
 }

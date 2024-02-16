@@ -33,3 +33,23 @@ input::-webkit-inner-spin-button {
 .App-link {
   color: #61dafb;
 }
+
+.MyButton {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  border: 1px solid skyblue;
+  padding: 4px;
+  border-radius: 5px;
+  color: white;
+  border-width: 1px;
+  margin-top: 10px;
+  background: #000;
+  transition: 0.2s;
+}
+
+.MyButton:hover {
+  transition: 0.2s;
+  opacity: 0.9;
+  transform: scale(1.05);
+}

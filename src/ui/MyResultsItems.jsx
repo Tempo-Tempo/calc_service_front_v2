@@ -2,19 +2,21 @@ import React from 'react';
 import MyButton from './MyButton.tsx';
 import { Link } from 'react-router-dom';
 
-const MyResultsItems = ({result, noIsTriagnle}) => {
+const MyResultsItems = ( { result, noIsTriagnle }) => {
+   let { typeTriangle } = result;
+   console.log(typeTriangle);
    return (
          <div className='result_line'>  
                <div>
                   {noIsTriagnle && <span className='text_error'>{ noIsTriagnle }</span> }
                </div>
                <div>
-                  {result?.testErr !== null && <span className='text_error'>{ result?.testErr }</span> }
+                  {result.testErr !== null && <span className='text_error'>{ result?.testErr }</span> }
                </div>
         {result && noIsTriagnle.length === 0 && result.testErr === null && <ul>
          <span className='title_result'>Результат:</span>
                <li>
-                  {result.typeTriangle !== "" && <span className='text_green'>Тип треугольникa: {result.typeTriangle}</span> }
+                  {result?.typeTriangle !== "" && <span className='text_green'>Тип треугольникa: {result.typeTriangle}</span> }
                </li>
                <li>
                   {result.area !== 0 && result.area !== "NaN" && <span className='text_green'>Площадь: { Math.trunc(result.area * 100 ) / 100 }</span> }
@@ -45,7 +47,7 @@ const MyResultsItems = ({result, noIsTriagnle}) => {
                </li>
                <li>{result.tang !== 0 &&  result.tang !== "NaN" && <span className='text_green'>Тангенс: { Math.trunc(result.tang * 100 ) / 100 } </span> }
                </li>
-               <Link to={"/triangle/info"}><MyButton className={"bg-black mt-2 font-bold p-1 border border-white text-base text-white rounded-md hover:bg-gray-900"}>Подробнее</MyButton></Link>
+               <Link to={"/triangle/info"}><MyButton>Подробнее</MyButton></Link>
          </ul>
          }
       </div>

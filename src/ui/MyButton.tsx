@@ -1,4 +1,5 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
+
 
 interface MyButtonProps {
    children: ReactNode,
@@ -7,7 +8,7 @@ interface MyButtonProps {
    className: string;
 }
 
-const MyButton = ({children, onClick, onSubmit, className = '', ...props}: MyButtonProps) => {
+const MyButton = ({children, onClick, onSubmit, className = 'MyButton', ...props}: MyButtonProps) => {
    return (
          <button 
          onClick={onClick} 

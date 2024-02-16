@@ -1,5 +1,4 @@
 import React from 'react';
-import MyImage from '../ui/MyImage';
 
 const DescripFigure = ({typeTriangle}) => {
    console.log(typeTriangle)
