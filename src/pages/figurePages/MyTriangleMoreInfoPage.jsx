@@ -6,14 +6,8 @@ import Slider from '../../components/DynamicDesrip.jsx';
 
 const MyTriangleMoreInfoPage = ({result}) => {
    const type = JSON.parse(localStorage.getItem('result'));
-
    const [typeTriangle, setTypeTriangle] = useState(type?.typeTriangle);
-   
-   const vertices = [
-      { x: 0, y: 0 },
-      { x: 150, y: 100 },
-      { x: 50, y: 150 },
-    ];
+   console.log(type)
    return (
       <div className="App-header">
           <div className="figure_item">
@@ -23,7 +17,15 @@ const MyTriangleMoreInfoPage = ({result}) => {
          <DescripFigure typeTriangle={typeTriangle}/>
          <Slider />
          </div>  
-         {/* <TriangleCanvas width={200} height={200}  vertices={vertices}/> */}
+         <TriangleCanvas   
+         width={100} 
+         height={100}
+         sideA={type.a * 4}
+         sideB={type.b * 4}
+         sideC={type.c * 4}
+         angleA={type.angleA}
+         angleB={type.angleB}
+         angleC={type.angleC} />
       </div>
       </div>
    );

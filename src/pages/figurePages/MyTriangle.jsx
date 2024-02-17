@@ -42,7 +42,7 @@ const MyTriangle = () => {
          </div>
             <ul>
                 <div className='figure_description'>
-               <span ><MyImage src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/></span> 
+               <span><MyImage style={{height: 150}} src={require(`../../assets/imgFigure/triangle_last.png`)} alt='ooops'/></span> 
                   <li className='ml-4'> Площадь вычисляется по формуле Герона S = √(s * (s - a) * (s - b) * (s - c)) </li>
                 </div> 
                 <li className='li_figure'>
