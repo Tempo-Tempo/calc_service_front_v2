@@ -7,13 +7,15 @@ import MyTriangleCanvas from '../pages/figurePages/MyTriangleCanvas.jsx';
 import MyButton from '../ui/MyButton.tsx';
 import MyResultsItems from '../ui/MyResultsItems.jsx';
 
-const Slider = ( {setMoreInfoIsOpen} ) => {
+const Slider = () => {
     const type = JSON.parse(localStorage.getItem('result'));
     const [ transform, setTransform ] = useState(0);
     const styles = { transform:`translateX(${transform}px)`};
-   const test = () => {
-      setMoreInfoIsOpen(true);
-   }
+    let sides = [Number(type.a), Number(type.b), Number(type.c)].filter(s => s !== 0);
+    sides.sort((a, b) => {
+      return a - b;
+   });
+   let scale = 300 / sides[2];
    const prev = () => {
       setTransform(transform + 288)
       if(transform >= 0) setTransform(-576);
@@ -32,14 +34,14 @@ const Slider = ( {setMoreInfoIsOpen} ) => {
             {type?.bess &&
                <li className='img_wrap' style={styles}>
                      <div className='wrapper_canvas'> 
-            <MyTriangleCanvas width={300} height={300}
-            sideA={type.a * 15}
-            sideB={type.b * 15}
-            sideC={type.c * 15}
+            <MyTriangleCanvas width={300} height={300} sides={sides}
+            sideA={type.a * scale}
+            sideB={type.b * scale}
+            sideC={type.c * scale}
             angleA={type.angleA}
             angleB={type.angleB}
             angleC={type.angleC} />
-         </div> 
+            </div> 
                      <span> <span className='text_green'>Биссектриса</span> обозначена буквой D и проведена из вершины угла С =
                      <span className='text_green'> { Math.trunc(type.bess * 100 ) / 100 }</span> </span> <br />
                      <span><span className='text_green'>Медиана</span> обозначена буквой M и проведена из угла А = 
@@ -58,7 +60,7 @@ const Slider = ( {setMoreInfoIsOpen} ) => {
                      <MyImage src={bg3}/>
                      {/* <span><span className='text_green'>Площадь описаной окружности</span> обозначена O и равна
                      <span className='text_green'> { Math.trunc(type.outCircle * 100 ) / 100 }</span> </span> */}
-                     <MyResultsItems result={type} noIsTriagnle={''} setMoreInfoIsOpen={test}/>
+                     <MyResultsItems result={type} noIsTriagnle={''}/>
                </li>}
             </div> 
             <span className='arrow_slider_left'>
