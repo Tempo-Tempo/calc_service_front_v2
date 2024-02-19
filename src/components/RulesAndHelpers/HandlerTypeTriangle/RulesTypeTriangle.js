@@ -1,6 +1,5 @@
 export const RulesTypeTriangle = (values, test) => {
    let {a, b, c, angleA, angleB, angleC} = values
-   console.log(test);
    let resultText = '';
    let sides = [Number(a), Number(b), Number(c)].filter(s => s !== 0);
    sides.sort((a, b) => {

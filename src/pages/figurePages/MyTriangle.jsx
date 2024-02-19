@@ -5,31 +5,45 @@ import MyImage from '../../ui/MyImage';
 import { calc} from '../../hooks/UseTestPost/GetCalcResult.js';
 import MyResultsItems from '../../ui/MyResultsItems.jsx';
 import { RulesTypeTriangle } from '../../components/RulesAndHelpers/HandlerTypeTriangle/RulesTypeTriangle.js';
-import "./FigurePage.css";
+import "../stylePages/FigurePage.css";
 
 
 const MyTriangle = () => {   
    const [ errorIsNoTriangle, setErrorIsNoTriangle ] = useState('');
-
+   const [moreInfoIsOpen, setMoreInfoIsOpen] = useState(false);
    const [ result, setResult ] = useState('');
-
    const [ newCalc, setNewCalc ] = useState({a: '', b: '', c: '', angleA: '', angleB: '', angleC: ''});
+
 
    useEffect(() => {
       const result = JSON.parse(localStorage.getItem("result"));
+      const newCalc = JSON.parse(localStorage.getItem("newCalc"));
+      if(!newCalc) return;
       setResult(result);
+      setNewCalc(newCalc);
    }, [])
+
+    const clearResults = () => {
+      setNewCalc({a: '', b: '', c: '', angleA: '', angleB: '', angleC: ''});
+      setResult('');
+   }
+
+   const comparisonOfValues = (oldValue, newValue) => {
+      return Number(oldValue) !== Number(newValue) && Number(oldValue) !== 0;
+    }
   
    const calcMyTriangle = useCallback(async () => {
       if(RulesTypeTriangle(newCalc)?.length > 1) return setErrorIsNoTriangle(RulesTypeTriangle(newCalc));
       setErrorIsNoTriangle(RulesTypeTriangle(newCalc))
       let result = await calc(newCalc, "triangle");
-      if(Number(result?.angleA) !== Number(newCalc.angleA) && Number(newCalc.angleA) !== 0 
-      || Number(result?.angleB) !== Number(newCalc.angleB) && Number(newCalc.angleB) !== 0 
-      || Number(result?.angleC) !== Number(newCalc.angleC) && Number(newCalc.angleC) !== 0) {
+      if(comparisonOfValues(newCalc.angleA, result?.angleA) 
+      || comparisonOfValues(newCalc.angleB, result?.angleB) 
+      || comparisonOfValues(newCalc.angleC, result?.angleC)) {
          setErrorIsNoTriangle("Такого треугольника не существует.");
       }
+      console.log(result);
       localStorage.setItem("result", JSON.stringify(result));
+      localStorage.setItem("newCalc", JSON.stringify(newCalc));
       setResult(result);
    })
 
@@ -47,30 +61,30 @@ const MyTriangle = () => {
                 </div> 
                 <li className='li_figure'>
                 <span>Введите сторону a:</span>
-               <MyInput value={newCalc.a} onChange={(e) => setNewCalc({...newCalc, a: e})} placeholder='Введите сторону a'/>
+               <MyInput value={newCalc.a} onChange={(val) => setNewCalc({...newCalc, a: val})} placeholder='Введите сторону a'/>
                 </li>
                <li className='li_figure'>
               <span>Введите сторону b:</span>
-               <MyInput value={newCalc.b} onChange={(e) => setNewCalc({...newCalc, b: e})} placeholder='Введите сторону b'/>
+               <MyInput value={newCalc.b} onChange={(val) => setNewCalc({...newCalc, b: val})} placeholder='Введите сторону b'/>
               </li>
                <li className='li_figure'>
                <span>Введите сторону c:</span>
-                 <MyInput value={newCalc.c} onChange={(e) => setNewCalc({...newCalc, c: e})} placeholder='Введите сторону с'/> 
+                 <MyInput value={newCalc.c} onChange={(val) => setNewCalc({...newCalc, c: val})} placeholder='Введите сторону с'/> 
                </li>
                <li className='li_figure'>
                <span>Введите угол А:</span>
-               <MyInput value={newCalc.angleA} onChange={(e) => setNewCalc({...newCalc, angleA: e})} placeholder='Введите угол A' />
+               <MyInput value={newCalc.angleA} onChange={(val) => setNewCalc({...newCalc, angleA: val})} placeholder='Введите угол A' />
                </li>
                <li className='li_figure'>
                <span>Введите угол B:</span>
-               <MyInput value={newCalc.angleB} onChange={(e) => setNewCalc({...newCalc, angleB: e})} placeholder='Введите угол B' />
+               <MyInput value={newCalc.angleB} onChange={(val) => setNewCalc({...newCalc, angleB: val})} placeholder='Введите угол B' />
                 </li>
                 <li className='li_figure'>
                 <span>Введите угол C:</span>
-               <MyInput value={newCalc.angleC} onChange={(e) => setNewCalc({...newCalc, angleC: e})} placeholder='Введите угол C' 
+               <MyInput value={newCalc.angleC} onChange={(val) => setNewCalc({...newCalc, angleC: val})} placeholder='Введите угол C' 
               />
                 </li> 
-               <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} />
+               <MyResultsItems noIsTriagnle={errorIsNoTriangle} result={result} clearResults={clearResults} />
          </ul>
          {<MyButton onSubmit={calcMyTriangle} onClick={calcMyTriangle}>Рассчитать</MyButton>}
       </div>

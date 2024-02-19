@@ -18,13 +18,10 @@ const MyTriangleCanvas = (props) => {
           x: p1.x + sideB * Math.cos(angleBradians),
           y: p1.y + sideB * Math.sin(angleBradians),
         };
-        // const p4 = {
-        //   x: p1.x + sideC * Math.cos(angleCradians),
-        //   y: p1.y + sideC * Math.sin(angleCradians),
-        // };
+     
     
-        const offsetX = Math.min(-20, p3.x);
-        const offsetY = Math.max(0, p3.y - 25);
+        const offsetX = Math.min(-95, p3.x);
+        const offsetY = Math.max(0, p3.y -50);
     
         p1.x -= offsetX;
         p1.y += offsetY;
@@ -32,14 +29,23 @@ const MyTriangleCanvas = (props) => {
         p2.y += offsetY;
         p3.x -= offsetX;
         p3.y += offsetY;
-        // p4.x -= offsetX;
-        // p4.y += offsetY;
+        
+         
+        const xc = (p1.x + p2.x + p3.x) / 3;
+        const yc = (p1.y + p2.y + p3.y) / 3;
+
+    const s = (sideA + sideB + sideC)/2; 
+    const radius = Math.sqrt((s-sideA)*(s-sideB)*(s-sideC)/s);
+
+  
+    ctx.beginPath();
+    ctx.arc(xc, yc, radius, 0, 2 * Math.PI); 
+    ctx.stroke();
 
         ctx.beginPath();
         ctx.moveTo(p1.x, canvas.height - p1.y);
         ctx.lineTo(p2.x, canvas.height - p2.y);
         ctx.lineTo(p3.x, canvas.height - p3.y);
-        // ctx.lineTo(p3.x, canvas.height - p4.y);
         ctx.closePath();
     
         ctx.lineWidth = 1;
@@ -51,7 +57,7 @@ const MyTriangleCanvas = (props) => {
  
   return (
     <canvas
-    className='block'
+    className='my_canvas'
       ref={canvasRef}
       width={width}
       height={height}

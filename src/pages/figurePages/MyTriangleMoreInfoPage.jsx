@@ -4,10 +4,9 @@ import DescripFigure from '../../components/DescripFigure';
 import LinkToMain from '../../ui/LinkToMain';
 import Slider from '../../components/DynamicDesrip.jsx';
 
-const MyTriangleMoreInfoPage = ({result}) => {
-   const type = JSON.parse(localStorage.getItem('result'));
-   const [typeTriangle, setTypeTriangle] = useState(type?.typeTriangle);
-   console.log(type)
+const MyTriangleMoreInfoPage = () => {
+   const result = JSON.parse(localStorage.getItem('result'));
+   const [typeTriangle, setTypeTriangle] = useState(result?.typeTriangle);
    return (
       <div className="App-header">
           <div className="figure_item">
@@ -16,16 +15,17 @@ const MyTriangleMoreInfoPage = ({result}) => {
          <div className='figure_title'>
          <DescripFigure typeTriangle={typeTriangle}/>
          <Slider />
-         </div>  
-         <TriangleCanvas   
-         width={100} 
-         height={100}
-         sideA={type.a * 4}
-         sideB={type.b * 4}
-         sideC={type.c * 4}
-         angleA={type.angleA}
-         angleB={type.angleB}
-         angleC={type.angleC} />
+         </div> 
+         {/* <div className='wrapper_canvas'> 
+            <TriangleCanvas width={300} height={300}
+            sideA={result.a * 15}
+            sideB={result.b * 15}
+            sideC={result.c * 15}
+            angleA={result.angleA}
+            angleB={result.angleB}
+            angleC={result.angleC} />
+         </div>  */}
+        
       </div>
       </div>
    );

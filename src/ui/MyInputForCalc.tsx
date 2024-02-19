@@ -22,7 +22,7 @@ const MyInput = ({ placeholder, value, onChange, validison}: MyInputProps) => {
           type='number'  
           className={'text-black m-1 rounded-sm pl-4'} 
           onChange={(e) => handlerInput(e.target.value)} 
-          value={inputValue} placeholder={placeholder}/>
+          value={value} placeholder={placeholder}/>
       </form>  
    );
 };
