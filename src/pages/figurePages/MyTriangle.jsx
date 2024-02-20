@@ -60,15 +60,15 @@ const MyTriangle = () => {
                   <li className='ml-4'> Площадь вычисляется по формуле Герона S = √(s * (s - a) * (s - b) * (s - c)) </li>
                 </div> 
                 <li className='li_figure'>
-                <span>Введите сторону a:</span>
+                <span>Введите сторону AB:</span>
                <MyInput value={newCalc.a} onChange={(val) => setNewCalc({...newCalc, a: val})} placeholder='Введите сторону a'/>
                 </li>
                <li className='li_figure'>
-              <span>Введите сторону b:</span>
+              <span>Введите сторону AC:</span>
                <MyInput value={newCalc.b} onChange={(val) => setNewCalc({...newCalc, b: val})} placeholder='Введите сторону b'/>
               </li>
                <li className='li_figure'>
-               <span>Введите сторону c:</span>
+               <span>Введите сторону BC:</span>
                  <MyInput value={newCalc.c} onChange={(val) => setNewCalc({...newCalc, c: val})} placeholder='Введите сторону с'/> 
                </li>
                <li className='li_figure'>

@@ -41,12 +41,12 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                    {result.med  !== 0 && result.med !== "NaN" && 
-                   <span className='text_green'>Медиана, проведенная из угла А: { Math.trunc(result.med * 100 ) / 100 }
+                   <span className='text_green'>Медиана, проведенная из вершины А: { Math.trunc(result.med * 100 ) / 100 }
                    </span> }
                </li>
                <li>
                    {result.height  !== 0 && result.height !== "NaN" && result.height !== "NaN" && 
-                   <span className='text_green'>Высота к стороне а: { Math.trunc(result.height * 100 ) / 100 }
+                   <span className='text_green'>Высота к из угла А: { Math.trunc(result.height * 100 ) / 100 }
                    </span> } 
                </li>
                <li>

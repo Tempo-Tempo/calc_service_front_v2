@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TriangleCanvas from './MyTriangleCanvas';
 import DescripFigure from '../../components/DescripFigure';
 import LinkToMain from '../../ui/LinkToMain';
 import Slider from '../../components/DynamicDesrip.jsx';
