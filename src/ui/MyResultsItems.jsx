@@ -26,7 +26,7 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                   {result.area !== 0 && result.area !== "NaN" && 
-                  <span className='text_green'>Площадь: { Math.trunc(result.area * 100 ) / 100 }
+                  <span className='text_green'>Площадь: { result?.area?.toFixed(4) * 100 / 100 }
                   </span> }
                </li>
                <li>
@@ -36,32 +36,32 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                   {result.bess !== 0 && result.bess !== "NaN" && result.tang !== "NaN" && 
-                  <span className='text_green'>Биссектриса из вершины угла С: { Math.trunc(result.bess * 100 ) / 100 }
+                  <span className='text_green'>Биссектриса из вершины угла С: { result?.bess?.toFixed(4) * 100 / 100}
                   </span> } 
                </li>
                <li>
                    {result.med  !== 0 && result.med !== "NaN" && 
-                   <span className='text_green'>Медиана, проведенная из вершины А: { Math.trunc(result.med * 100 ) / 100 }
+                   <span className='text_green'>Медиана, проведенная из вершины А: { result?.med?.toFixed(4) * 100 / 100 }
                    </span> }
                </li>
                <li>
                    {result.height  !== 0 && result.height !== "NaN" && result.height !== "NaN" && 
-                   <span className='text_green'>Высота к из угла А: { Math.trunc(result.height * 100 ) / 100 }
+                   <span className='text_green'>Высота из угла А: { result?.height?.toFixed(4) * 100 / 100 }
                    </span> } 
                </li>
                <li>
                  {result.outCircle !== 0  && result.outCircle !== "NaN" && 
-                 <span className='text_green'> Площадь описаной окружности: { Math.trunc(result.outCircle * 100 ) / 100 } 
+                 <span className='text_green'> Площадь описаной окружности: { result?.outCircle?.toFixed(4) * 100 / 100 } 
                  </span> }
                </li>
                <li>
                  {result.inCircle !== 0  && result.inCircle !== "NaN" && 
-                 <span className='text_green'> Площадь вписаной окружности: { Math.trunc(result.inCircle * 100 ) / 100 } 
+                 <span className='text_green'> Площадь вписаной окружности: { result?.inCircle?.toFixed(4) * 100 / 100 } 
                  </span> } 
                </li>
                <li>
                  {result.cos !== 0 &&  result.cos !== "NaN" && 
-                 <span className='text_green'>Косинус угла А в радианах: { result?.cos.toFixed(5) } 
+                 <span className='text_green'>Косинус угла А в радианах: { result?.cos?.toFixed(4) * 100 / 100 } 
                  </span> } 
                </li>
                <li>

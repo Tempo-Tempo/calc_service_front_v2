@@ -29,7 +29,7 @@ const Slider = () => {
        <span className='arrow_slider'>
          <MyButton onClick={prev}>{'<'}</MyButton>
        </span>
-          <ul className='text-left mb-2'>
+          <ul className='mb-2'>
             <div className='slide_panel'>
             <li className='wrapper_canvas' style={styles}>
                 <MyTriangleCanvas angles={angles} scale={result.height} slide1={true} 

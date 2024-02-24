@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DescripFigure from '../../components/DescripFigure';
 import LinkToMain from '../../ui/LinkToMain';
-import Slider from '../../components/DynamicDesrip.jsx';
+import Slider from '../../components/Slider.jsx';
 
 const MyTriangleMoreInfoPage = () => {
    const result = JSON.parse(localStorage.getItem('result'));

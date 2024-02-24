@@ -17,6 +17,7 @@ const MyTriangle = () => {
 
    useEffect(() => {
       const result = JSON.parse(localStorage.getItem("result"));
+      setResult(result);
       const newCalc = JSON.parse(localStorage.getItem("newCalc"));
       if(!newCalc) return;
       setResult(result);
@@ -29,6 +30,7 @@ const MyTriangle = () => {
    }
 
    const comparisonOfValues = (oldValue, newValue) => {
+      console.log(oldValue, "old", newValue, "new")
       return Number(oldValue) !== Number(newValue) && Number(oldValue) !== 0;
     }
   
@@ -39,7 +41,7 @@ const MyTriangle = () => {
       if(comparisonOfValues(newCalc.angleA, result?.angleA) 
       || comparisonOfValues(newCalc.angleB, result?.angleB) 
       || comparisonOfValues(newCalc.angleC, result?.angleC)) {
-         setErrorIsNoTriangle("Такого треугольника не существует.");
+        return setErrorIsNoTriangle("Такого треугольника не существует.");
       }
       console.log(result);
       localStorage.setItem("result", JSON.stringify(result));
