@@ -26,7 +26,7 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                   {result.area !== 0 && result.area !== "NaN" && 
-                  <span className='text_green'>Площадь: { result?.area?.toFixed(4) * 100 / 100 }
+                  <span className='text_green'>Площадь: { result?.area?.toFixed(4) }
                   </span> }
                </li>
                <li>
@@ -36,56 +36,56 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                   {result.bess !== 0 && result.bess !== "NaN" && result.tang !== "NaN" && 
-                  <span className='text_green'>Биссектриса из вершины угла С: { result?.bess?.toFixed(4) * 100 / 100}
+                  <span className='text_green'>Биссектриса из вершины угла С: { result?.bess?.toFixed(4)}
                   </span> } 
                </li>
                <li>
                    {result.med  !== 0 && result.med !== "NaN" && 
-                   <span className='text_green'>Медиана, проведенная из вершины А: { result?.med?.toFixed(4) * 100 / 100 }
+                   <span className='text_green'>Медиана, проведенная из вершины А: { result?.med?.toFixed(4) }
                    </span> }
                </li>
                <li>
                    {result.height  !== 0 && result.height !== "NaN" && result.height !== "NaN" && 
-                   <span className='text_green'>Высота из угла А: { result?.height?.toFixed(4) * 100 / 100 }
+                   <span className='text_green'>Высота из угла А: { result?.height?.toFixed(4)  }
                    </span> } 
                </li>
                <li>
                  {result.outCircle !== 0  && result.outCircle !== "NaN" && 
-                 <span className='text_green'> Площадь описаной окружности: { result?.outCircle?.toFixed(4) * 100 / 100 } 
+                 <span className='text_green'> Площадь описаной окружности: { result?.outCircle?.toFixed(4) } 
                  </span> }
                </li>
                <li>
                  {result.inCircle !== 0  && result.inCircle !== "NaN" && 
-                 <span className='text_green'> Площадь вписаной окружности: { result?.inCircle?.toFixed(4) * 100 / 100 } 
+                 <span className='text_green'> Площадь вписаной окружности: { result?.inCircle?.toFixed(4)  } 
                  </span> } 
                </li>
                <li>
-                 {result.cos !== 0 &&  result.cos !== "NaN" && 
+                 {result.cos !== 0 &&  result.cos !== null && 
                  <span className='text_green'>Косинус угла А в радианах: { result?.cos?.toFixed(4) * 100 / 100 } 
                  </span> } 
                </li>
                <li>
-                 {result.cosDegrees !== 0 &&  result.cosDegrees !== "NaN"  && 
+                 {result.cosDegrees !== 0 &&  result.cosDegrees !== null  && 
                  <span className='text_green'>Косинус угла А в градусах: { Math.trunc(result?.cosDegrees * 100 ) / 100 } 
                  </span> } 
                </li>
                <li>
-                 {result.sin !== 0 && result.sin !== "NaN" && 
-                 <span className='text_green'>Синус угла А в радианах: { result?.sin.toFixed(5) } 
+                 {result.sin !== 0 && result.sin !== null && 
+                 <span className='text_green'>Синус угла А в радианах: { result?.sin?.toFixed(5) } 
                  </span> } 
                </li>
                <li>
-                 {result.sinDegrees !== 0 && result.sinDegrees !== "NaN" && 
+                 {result.sinDegrees !== 0 && result.sinDegrees !== null && 
                  <span className='text_green'>Синус угла А в градусах: { Math.trunc(result?.sinDegrees * 100 ) / 100 }
                  </span> } 
                </li>
                <li>
-                  {result.tang !== 0 &&  result.tang !== "NaN" && 
-               <span className='text_green'>Тангенс угла А в радианах: { result?.tang.toFixed(5) } 
+                  {result.tang !== 0 &&  result.tang !== null && 
+               <span className='text_green'>Тангенс угла А в радианах: { result?.tang?.toFixed(5) } 
                </span> }
                </li>
                <li>
-                  {result.tangDegrees !== 0 &&  result.tangDegrees !== "NaN" && 
+                  {result.tangDegrees !== 0 &&  result.tangDegrees !== null && 
                <span className='text_green'>Тангенс угла А в градусах: { Math.trunc(result.tangDegrees * 100 ) / 100 } 
                </span> }
                </li>
