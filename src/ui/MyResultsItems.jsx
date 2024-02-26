@@ -61,7 +61,7 @@ const MyResultsItems = ( { result, noIsTriagnle, clearResults }) => {
                </li>
                <li>
                  {result.cos !== 0 &&  result.cos !== null && 
-                 <span className='text_green'>Косинус угла А в радианах: { result?.cos?.toFixed(4) * 100 / 100 } 
+                 <span className='text_green'>Косинус угла А в радианах: { result?.cos?.toFixed(4)} 
                  </span> } 
                </li>
                <li>
